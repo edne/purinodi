@@ -1,4 +1,6 @@
 #include <m_pd.h>
+#include <math.h>
+#include <GLFW/glfw3.h>
 #include <functional>
 #include <vector>
 
