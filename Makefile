@@ -1,5 +1,5 @@
 lib.name = ggdG
-class.sources = src/gg_view.cpp src/gg_square.cpp src/gg_scale.cpp
+class.sources = src/gg_view.cpp src/gg_square.cpp src/gg_scale.cpp src/gg_polygon.cpp
 shared.sources = src/global.cpp
 
 CXX = g++

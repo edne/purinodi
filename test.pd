@@ -1,14 +1,16 @@
-#N canvas 1 598 1364 152 10;
-#X obj 21 60 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#N canvas 1 536 1364 214 10;
+#X obj 168 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 21 124 gg_view;
-#X obj 21 80 gg_square;
-#X floatatom 74 28 5 0 0 0 - - -, f 5;
-#X msg 74 6 0.5;
-#X obj 21 102 gg_scale;
-#X connect 0 0 2 0;
-#X connect 2 0 5 0;
-#X connect 3 0 0 0;
-#X connect 3 0 5 1;
-#X connect 4 0 3 0;
-#X connect 5 0 1 0;
+#X obj 40 154 gg_view;
+#X obj 142 80 gg_square;
+#X obj 20 103 gg_scale;
+#X obj 21 73 gg_polygon;
+#X floatatom 169 27 5 0 0 0 - - -, f 5;
+#X msg 169 5 0.5;
+#X floatatom 123 27 5 0 0 0 - - -, f 5;
+#X msg 123 5 4;
+#X obj 21 52 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X connect 6 0 5 0;
+#X connect 8 0 7 0;
+#X connect 9 0 4 0;
