@@ -1,16 +1,22 @@
-#N canvas 1 536 1364 214 10;
+#N canvas 548 406 817 157 10;
 #X obj 168 50 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 40 154 gg_view;
-#X obj 142 80 gg_square;
-#X obj 20 103 gg_scale;
-#X obj 21 73 gg_polygon;
-#X floatatom 169 27 5 0 0 0 - - -, f 5;
-#X msg 169 5 0.5;
-#X floatatom 123 27 5 0 0 0 - - -, f 5;
-#X msg 123 5 4;
-#X obj 21 52 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X floatatom 54 28 5 0 0 0 - - -, f 5;
+#X msg 54 6 0.5;
+#X floatatom 107 28 5 0 0 0 - - -, f 5;
+#X msg 107 6 4;
+#X obj 22 72 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X connect 6 0 5 0;
-#X connect 8 0 7 0;
-#X connect 9 0 4 0;
+#X obj 21 90 pn_polygon;
+#X obj 21 116 pn_scale;
+#X obj 21 142 pn_view;
+#X obj 142 80 pn_square;
+#X connect 1 0 5 0;
+#X connect 1 0 6 1;
+#X connect 2 0 1 0;
+#X connect 3 0 5 0;
+#X connect 3 0 6 2;
+#X connect 4 0 3 0;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 7 0 8 0;

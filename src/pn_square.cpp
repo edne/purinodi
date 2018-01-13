@@ -1,20 +1,20 @@
-#include <gg.h>
+#include <purinodi.h>
 
-typedef struct _gg_square {
+typedef struct _pn_square {
     t_object x_obj;
     t_outlet *outlet;
     int action_id;
     int input_action_id;
 
     float r;
-} gg_square;
+} pn_square;
 
-static void init(gg_square *self) {
+static void init(pn_square *self) {
     self->r = 0.5;
     floatinlet_new(&self->x_obj, &self->r);
 }
 
-static void action(gg_square *self) {
+static void action(pn_square *self) {
     float r = self->r;
 
     glColor3f(1, 1, 1);
@@ -29,4 +29,4 @@ static void action(gg_square *self) {
     glEnd();
 }
 
-entity_register(gg_square, init, action);
+entity_register(pn_square, init, action);

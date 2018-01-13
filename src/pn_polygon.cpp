@@ -1,22 +1,22 @@
-#include <gg.h>
+#include <purinodi.h>
 
-typedef struct _gg_polygon {
+typedef struct _pn_polygon {
     t_object x_obj;
     t_outlet *outlet;
     int action_id;
     int input_action_id;
 
     float r, n;
-} gg_polygon;
+} pn_polygon;
 
-static void init(gg_polygon *self) {
+static void init(pn_polygon *self) {
     self->r = 0.5;
     self->n = 3;
     floatinlet_new(&self->x_obj, &self->r);
     floatinlet_new(&self->x_obj, &self->n);
 }
 
-static void action(gg_polygon *self) {
+static void action(pn_polygon *self) {
     float r = self->r;
     float n = self->n;
     float theta, x, y;
@@ -36,4 +36,4 @@ static void action(gg_polygon *self) {
     glEnd();
 }
 
-entity_register(gg_polygon, init, action);
+entity_register(pn_polygon, init, action);

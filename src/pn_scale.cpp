@@ -1,20 +1,20 @@
-#include <gg.h>
+#include <purinodi.h>
 
-typedef struct _gg_scale {
+typedef struct _pn_scale {
     t_object x_obj;
     t_outlet *outlet;
     int action_id;
     int input_action_id;
 
     float ratio;
-} gg_scale;
+} pn_scale;
 
-static void init(gg_scale *self) {
+static void init(pn_scale *self) {
     self->ratio = 1;
     floatinlet_new(&self->x_obj, &self->ratio);
 }
 
-static void action(gg_scale *self) {
+static void action(pn_scale *self) {
     int action_id = self->input_action_id;
     float ratio = self->ratio;
 
@@ -27,4 +27,4 @@ static void action(gg_scale *self) {
     glPopMatrix();
 }
 
-entity_register(gg_scale, init, action);
+entity_register(pn_scale, init, action);

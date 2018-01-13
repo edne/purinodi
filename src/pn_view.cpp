@@ -1,14 +1,14 @@
-#include <gg.h>
+#include <purinodi.h>
 
-static t_class *gg_view_class;
+static t_class *pn_view_class;
 
-typedef struct _gg_view {
+typedef struct _pn_view {
     t_object x_obj;
     GLFWwindow* window;
-} t_gg_view;
+} t_pn_view;
 
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
-void gg_view_float(t_gg_view *self, float _action_id) {
+void pn_view_float(t_pn_view *self, float _action_id) {
     int action_id = (int)_action_id;
     int width, height, side, x0, y0;
 
@@ -30,8 +30,8 @@ void gg_view_float(t_gg_view *self, float _action_id) {
     glfwSwapBuffers(self->window);
 }
 
-void *gg_view_new(void) {
-    t_gg_view *self = (t_gg_view *)pd_new(gg_view_class);
+void *pn_view_new(void) {
+    t_pn_view *self = (t_pn_view *)pd_new(pn_view_class);
 
     GLFWwindow* window;
     window = glfwCreateWindow(640, 480, "", NULL, NULL);
@@ -47,20 +47,20 @@ void *gg_view_new(void) {
     return (void *)self;
 }
 
-void gg_view_free(t_gg_view *self) {
+void pn_view_free(t_pn_view *self) {
     (void) self;
 }
 
 extern "C" {
-    void gg_view_setup(void) {
-        gg_view_class = class_new(
-            gensym("gg_view"),
-            (t_newmethod)gg_view_new,
-            (t_method)gg_view_free,
-            sizeof(t_gg_view),
+    void pn_view_setup(void) {
+        pn_view_class = class_new(
+            gensym("pn_view"),
+            (t_newmethod)pn_view_new,
+            (t_method)pn_view_free,
+            sizeof(t_pn_view),
             CLASS_DEFAULT, A_NULL
         );
-        class_addfloat(gg_view_class, gg_view_float);
+        class_addfloat(pn_view_class, pn_view_float);
 
         if (!glfwInit())
             post("Cannot init glfw");

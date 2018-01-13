@@ -1,5 +1,5 @@
-lib.name = ggdG
-class.sources = src/gg_view.cpp src/gg_square.cpp src/gg_scale.cpp src/gg_polygon.cpp
+lib.name = purinodi
+class.sources = src/pn_view.cpp src/pn_square.cpp src/pn_scale.cpp src/pn_polygon.cpp
 shared.sources = src/global.cpp
 
 CXX = g++
