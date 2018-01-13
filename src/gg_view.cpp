@@ -8,13 +8,13 @@ typedef struct _gg_view {
 } t_gg_view;
 
 #define MAX(a, b) (((a) > (b)) ? (a) : (b))
-void gg_view_float(t_gg_view *x, float _action_id) {
+void gg_view_float(t_gg_view *self, float _action_id) {
     int action_id = (int)_action_id;
     int width, height, side, x0, y0;
 
-    glfwMakeContextCurrent(x->window);
+    glfwMakeContextCurrent(self->window);
 
-    glfwGetWindowSize(x->window, &width, &height);
+    glfwGetWindowSize(self->window, &width, &height);
 
     side = MAX(width, height);
     x0 = (width  - side) / 2;
@@ -27,11 +27,11 @@ void gg_view_float(t_gg_view *x, float _action_id) {
     if(action_id >= 0 && action_id < (int)actions.size())
         actions[action_id]();
 
-    glfwSwapBuffers(x->window);
+    glfwSwapBuffers(self->window);
 }
 
 void *gg_view_new(void) {
-    t_gg_view *x = (t_gg_view *)pd_new(gg_view_class);
+    t_gg_view *self = (t_gg_view *)pd_new(gg_view_class);
 
     GLFWwindow* window;
     window = glfwCreateWindow(640, 480, "", NULL, NULL);
@@ -43,12 +43,12 @@ void *gg_view_new(void) {
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);  // vsync
 
-    x->window = window;
-    return (void *)x;
+    self->window = window;
+    return (void *)self;
 }
 
-void gg_view_free(t_gg_view *x) {
-    (void) x;
+void gg_view_free(t_gg_view *self) {
+    (void) self;
 }
 
 extern "C" {

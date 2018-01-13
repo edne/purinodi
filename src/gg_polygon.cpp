@@ -9,11 +9,11 @@ typedef struct _gg_polygon {
     float r, n;
 } gg_polygon;
 
-static void init(gg_polygon *x) {
-    x->r = 0.5;
-    x->n = 3;
-    floatinlet_new(&x->x_obj, &x->r);
-    floatinlet_new(&x->x_obj, &x->n);
+static void init(gg_polygon *self) {
+    self->r = 0.5;
+    self->n = 3;
+    floatinlet_new(&self->x_obj, &self->r);
+    floatinlet_new(&self->x_obj, &self->n);
 }
 
 static void action(gg_polygon *self) {

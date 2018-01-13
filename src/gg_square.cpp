@@ -9,13 +9,13 @@ typedef struct _gg_square {
     float r;
 } gg_square;
 
-static void init(gg_square *x) {
-    x->r = 0.5;
-    floatinlet_new(&x->x_obj, &x->r);
+static void init(gg_square *self) {
+    self->r = 0.5;
+    floatinlet_new(&self->x_obj, &self->r);
 }
 
-static void action(gg_square *x) {
-    float r = x->r;
+static void action(gg_square *self) {
+    float r = self->r;
 
     glColor3f(1, 1, 1);
 

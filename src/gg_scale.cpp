@@ -9,14 +9,14 @@ typedef struct _gg_scale {
     float ratio;
 } gg_scale;
 
-static void init(gg_scale *x) {
-    x->ratio = 1;
-    floatinlet_new(&x->x_obj, &x->ratio);
+static void init(gg_scale *self) {
+    self->ratio = 1;
+    floatinlet_new(&self->x_obj, &self->ratio);
 }
 
-static void action(gg_scale *x) {
-    int action_id = x->input_action_id;
-    float ratio = x->ratio;
+static void action(gg_scale *self) {
+    int action_id = self->input_action_id;
+    float ratio = self->ratio;
 
     glPushMatrix();
     glScalef(ratio, ratio, ratio);
