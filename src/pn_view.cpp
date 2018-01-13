@@ -24,8 +24,7 @@ void pn_view_float(t_pn_view *self, float _action_id) {
     glClearColor(0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT);
 
-    if(action_id >= 0 && action_id < (int)actions.size())
-        actions[action_id]();
+    call_action(action_id);
 
     glfwSwapBuffers(self->window);
 }

@@ -21,8 +21,7 @@ static void action(pn_scale *self) {
     glPushMatrix();
     glScalef(ratio, ratio, ratio);
 
-    if(action_id >= 0 && action_id < (int)actions.size())
-        actions[action_id]();
+    call_action(action_id);
 
     glPopMatrix();
 }

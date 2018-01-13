@@ -1,12 +1,10 @@
 #include <m_pd.h>
 #include <math.h>
 #include <GLFW/glfw3.h>
-#include <functional>
-#include <vector>
 
-using namespace std;
+int add_action(void *self, void (*action)(void *));
+void call_action(int action_id);
 
-extern vector<function<void(void)>> actions;
 
 #define entity_register(name, init, action) extern "C" {\
     static t_class *name##_class;\
@@ -30,8 +28,7 @@ extern vector<function<void(void)>> actions;
 \
         init(self);\
 \
-        self->action_id = actions.size();\
-        actions.push_back([self](){action(self);});\
+        self->action_id = add_action((void*)self, (void (*)(void *))action);\
         self->input_action_id = -1;\
 \
         return (void *)self;\
